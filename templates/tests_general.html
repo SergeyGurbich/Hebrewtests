@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class='article-main'>
+        <h1>Экспресс-тесты на знание иврита</h1>
+        <p>Тесты в рамках курса на уровень алеф:</p>
+            <div class="quest-container">
+                <div class="quest-list">
+                    {% for ele in rows %}
+                        {% if ele.level == 1 %}
+                            <li><a class="two" href="/tests/{{ ele.id }}">{{ ele.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="quest-list">
+                    {% for ele in rows_audio %}
+                        {% if ele.level == 1 %}
+                            <li><a class="two" href="/audiotests/{{ ele.id }}">{{ ele.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="quest-list">
+                    {% for ele in rows_video %}
+                        {% if ele.level == 1 %}
+                            <li><a class="two" href="/videotests/{{ ele.id }}">{{ ele.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        <p>Тесты в рамках курса на уровень бет:</p>
+            <div class="quest-container">
+                <div class="quest-list">
+                    {% for ele in rows %}
+                        {% if ele.level == 2 %}
+                            <li><a class="two" href="/tests/{{ ele.id }}">{{ ele.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="quest-list">
+                    {% for ele in rows_audio %}
+                        {% if ele.level == 2 %}
+                            <li><a class="two" href="/audiotests/{{ ele.id }}">{{ ele.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="quest-list">
+                    {% for ele in rows_video %}
+                        {% if ele.level == 2 %}
+                            <li><a class="two" href="/videotests/{{ ele.id }}">{{ ele.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+    </div>
+{% endblock %}

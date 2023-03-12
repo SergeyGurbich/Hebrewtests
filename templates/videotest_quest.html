@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class='article-main'>
+
+        <div class="cont-video">
+            <h1>Видеофрагмент для теста #{{id}}</h1>
+            <p>Вы можете просмотреть это видео повторно в ходе ответов на вопросы.</p>
+            <iframe width="300" height="200" src="{{video_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <p align="center">Вопрос #{{i}}</p>
+        <div class="rtl">
+        <form action="/videotests/{{id}}/{{i}}" method="POST">
+            <p>{{ quest }}</p>
+            <p>{{ form.quest }}</p>
+            <input type="submit">
+        </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class='article-main'>
+
+        <div class="cont-video">
+            <h1>Аудио для теста #{{id}}</h1>
+            <p>Вы можете прослушать аудио повторно в ходе ответов на вопросы.</p>
+            <audio controls>
+                <source src="{{ audio_url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <p align="center">Вопрос #{{i}}</p>
+        <div class="rtl">
+        <form action="/audiotests/{{id}}/{{i}}" method="POST">
+            <p>{{ quest }}</p>
+            <p>{{ form.quest }}</p>
+            <input type="submit">
+        </form>
+        </div>
+    </div>
+{% endblock %}

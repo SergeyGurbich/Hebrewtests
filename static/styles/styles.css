@@ -1,0 +1,274 @@
+html {
+    height: 100%;
+}
+
+body {
+	position: relative;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	color: #000;
+	min-width: 320px;
+	overflow-x: hidden;
+	min-height: 100%;
+    background-color: rgba(255, 234, 224, 0.8);
+    /*background-color: rgba(0, 255, 255, 0.2)*/  
+}
+
+.navbar {
+    background-image: url('header_100px.jpg');
+    width: 100%;
+    height: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1); /* сдвиг по х, по у, размытость, черный, прозрачность 0.1*/
+    display: flex;
+    align-items: center; /* сочетание этих 2-х свойств центрирует содержимое по вертикали*/
+}
+
+.navbar-menu {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar-menu li {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.navbar-menu li a {
+    display: inline-block;
+    padding: 10px;
+    opacity: 0.6;
+    text-decoration: none;
+    transition: all 0.7;
+}
+
+.navbar-menu li a:hover {
+    opacity: 1;
+}
+
+.article-main {
+    padding: 8px;
+    padding-bottom: 40px;
+    width: 98%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+    background-image: url('footer_60px.jpg');
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.footer-text {text-align: right;
+padding-left: 40px;}
+
+.rtl {
+    direction: rtl;
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+h1 {text-align: center;}
+
+h5 {letter-spacing: 1px;
+    margin: 1px 1px;
+    padding: 1px 1px;
+    font-size: 28px;
+    font-style: italic; 
+    font-weight: bold;
+    font-family: 'Book Antiqua';
+    color: #5624cc;
+  }
+
+h6 {font-size: 12px;
+    color: rgb(138, 192, 239);
+    padding-left: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+/*ссылки в виде кнопок*/ 
+.one {
+    border-radius: 10px;
+    color: #5624cc;
+    background: #dcac27;
+    /*background-color: transparent;*/
+    text-decoration: none;
+    /*border-bottom: 5px solid #E1B442;*/
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    font-style: italic; 
+    font-weight: bold;
+    font-family: 'Book Antiqua';
+    transition-duration: 0.4s;
+ }
+.one:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    margin: 20px;
+ }
+
+.two {
+    text-decoration: none;
+    font-style: italic; 
+    font-weight: bold;
+    font-family: 'Book Antiqua';
+    opacity: 0.7;
+}
+
+.two:hover {opacity: 1}
+
+.photo-descr {    
+    display: flex;
+    align-items: center;
+}
+
+.descr { 
+    margin-left: 40px;
+    display: inline-block;
+}
+
+.clipped-image {
+    margin-left: 50px;
+    width: 300px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    clip-path: ellipse(300px 240px at 50% 50%);
+    filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.5));
+    display: inline-block;
+  }
+  
+.clipped-image img {
+    width: 100%;
+    height: auto;
+  }
+
+.rectang-image {
+    filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.5));
+    width: 100%;
+    text-align: center;
+}
+
+.rectang-image img{
+    border-radius: 20px;
+    width: 250px;
+}
+
+.cont-video {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+.cont-video1 {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+.cont-video1 img {
+    width: 200px;
+    height: auto;
+}
+
+.quest-container {width: 100%;}
+
+.quest-list {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.sillabus {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sillabus-inside {
+    display: inline-block;
+}
+
+.cont-textbook {
+    margin-top: 50px;
+    margin-left: 30px;
+    padding-left: 30px;
+    text-align: center;
+    display: block;
+}
+
+.cont-textbook img {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+.video-all {
+    width: 100%;
+    text-align: center;
+}
+
+/* Далее стили для слайдера */
+
+.slider-container {
+    position: relative;
+    width: 600px;
+    height: 800px;
+    overflow: hidden;
+  }
+  .slider-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .slider-image.active {
+    opacity: 1;
+  }
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+    background-color: lightgray;
+  }
+  .next {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+    background-color: lightgray;
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+.button {
+    margin-left: 50px;
+    margin-bottom: 30px;
+}

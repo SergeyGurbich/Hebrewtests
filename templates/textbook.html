@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class='article-main'>
+        <!---->
+        <script>
+            var slideIndex = 1;
+
+            function showSlider() {
+              document.getElementById("slider").style.display = "block";
+              showSlide(slideIndex);
+            }
+            
+            function nextSlide() {
+              showSlide(slideIndex += 1);
+            }
+            
+            function prevSlide() {
+              showSlide(slideIndex -= 1);
+            }
+            
+            function showSlide(n) {
+              var slides = document.getElementsByClassName("slider-image");
+              if (n > slides.length) {
+                slideIndex = 1;
+              }
+              if (n < 1) {
+                slideIndex = slides.length;
+              }
+              for (var i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+              }
+              slides[slideIndex-1].classList.add("active");
+            }
+        </script>
+
+        <div class="slider-out">
+            <button class="button" onclick="showSlider()">Примеры страниц учебника</button>
+
+            <div id="slider" class="slider-container">
+            <img src="../static/p_23.jpg" class="slider-image">
+            <img src="../static/p_27.jpg" class="slider-image">
+            <img src="../static/p_41.jpg" class="slider-image">
+            <img src="../static/p_62.jpg" class="slider-image">
+            <img src="../static/p_64.jpg" class="slider-image">
+            <a class="prev" onclick="prevSlide()">&#10094;</a>
+            <a class="next" onclick="nextSlide()">&#10095;</a>
+            </div>
+        </div>
+        <!---->
+    </div>
+{% endblock %}

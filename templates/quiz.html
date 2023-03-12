@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class='article-main'>
+        <form action="{{ url_for('check_answer') }}" method="POST">
+            <p>{{ question }}</p>
+            {% for choice in choices %}
+              <label class="rtl">
+                <input type="radio" name="answer" value="{{ choice }}">
+                {{ choice }}
+              </label><br>
+            {% endfor %}
+            <input type="submit" value="Submit">
+          </form>
+          
+    </div>
+{% endblock %}

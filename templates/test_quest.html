@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class='article-main'>
+        <h1>Вопрос #{{i}}</h1>
+        <div class="rtl">
+        <form action="/tests/{{id}}/{{i}}" method="POST">
+            <p>{{ quest }}</p>
+            <p>{{ form.quest }}</p>
+            <input type="submit">
+        </form>
+        </div>
+    </div>
+{% endblock %}
