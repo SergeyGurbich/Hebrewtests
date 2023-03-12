@@ -1,9 +1,6 @@
 '''Код для сайта с ивритскими тестами'''
 
-import datetime
-import requests
 from flask import Flask, render_template, request, redirect, url_for
-from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy
 from forms import testform
 
