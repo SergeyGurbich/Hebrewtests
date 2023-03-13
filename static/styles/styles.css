@@ -197,6 +197,7 @@ h6 {font-size: 12px;
     width: 100%;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .sillabus-inside {
@@ -271,4 +272,21 @@ h6 {font-size: 12px;
 .button {
     margin-left: 50px;
     margin-bottom: 30px;
+}
+
+/* Stack the layout on small devices/viewports. */
+@media (max-width: 767px) {
+    .sillabus-inside {
+        width: 100%;
+    }
+
+    .one {
+        padding: 5px;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
 }
