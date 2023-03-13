@@ -17,18 +17,18 @@ body {
 }
 
 .navbar {
-    background: url('header_100px.jpg') center;
+    background: url('header_100px.jpg') center no-repeat;
     width: 100%;
     height: 100px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .1); /* сдвиг по х, по у, размытость, черный, прозрачность 0.1*/
     display: flex;
     align-items: center; /* сочетание этих 2-х свойств центрирует содержимое по вертикали*/
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    -moz-background-size: 100%;
-    -ms-background-size: 100%;
-    -khtml-background-size: 100%;
-    background-size: 100%;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -khtml-background-size: cover;
+    background-size: cover;
 }
 
 .navbar-menu {
@@ -75,15 +75,19 @@ body {
     width: 100%;
     height: 40px;
     background-image: url('footer_60px.jpg');
-    display: flex;
+    display: inline-flex;
     align-items: center;
     text-align: right;
     background-size: 100%;
     margin: 0;
+    padding: 0;
 }
 
 .footer-text {text-align: right;
-padding-left: 40px;}
+    padding-right: 30px;
+    display: block;
+    width: 100%;
+}
 
 .rtl {
     direction: rtl;
@@ -300,6 +304,7 @@ h6 {font-size: 12px;
         padding: 5px;
         margin: 5px;
         font-size: 14px;
+        display: inline-block;
     }
 
     h1 {
