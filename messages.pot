@@ -1,0 +1,548 @@
+# Translations template for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-03-20 19:26-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: flask_app.py:215
+msgid "Возможно, вам стоит повторить следующие темы:"
+msgstr ""
+
+#: flask_app.py:271 flask_app.py:326
+msgid "Ошибки были допущены при ответе на следующие вопросы:"
+msgstr ""
+
+#: templates/audiotest_quest.html:7
+msgid "Аудио для теста "
+msgstr ""
+
+#: templates/audiotest_quest.html:8
+msgid "Вы можете прослушать аудио повторно в ходе ответов на вопросы."
+msgstr ""
+
+#: templates/audiotest_quest.html:15 templates/test_quest.html:5
+#: templates/videotest_quest.html:12
+msgid "Вопрос "
+msgstr ""
+
+#: templates/base.html:22
+msgid "Главная"
+msgstr ""
+
+#: templates/base.html:23
+msgid "Тесты"
+msgstr ""
+
+#: templates/base.html:24
+msgid "Курсы"
+msgstr ""
+
+#: templates/base.html:25
+msgid "Видео"
+msgstr ""
+
+#: templates/base.html:26
+msgid "Обо мне"
+msgstr ""
+
+#: templates/base.html:27
+msgid "Контакт"
+msgstr ""
+
+#: templates/base.html:54
+msgid "Контент, оформление и всё такое: Sergii Gurbych"
+msgstr ""
+
+#: templates/courses.html:5
+msgid "Программа занятий в рамках индивидуальных курсов"
+msgstr ""
+
+#: templates/courses.html:6
+msgid ""
+"Каждая тема рассчитана на 4-6 часов работы с преподавателем. \n"
+"            В рамках каждой темы рассматривается также базовая "
+"грамматика, необходимая для грамотного общения."
+msgstr ""
+
+#: templates/courses.html:13
+msgid "Курс Алеф"
+msgstr ""
+
+#: templates/courses.html:14
+msgid "Темы для изучения в рамках онлайн курса \"иврит начального уровня\":"
+msgstr ""
+
+#: templates/courses.html:16
+msgid "знакомство (имя, место проживания, род деятельности);"
+msgstr ""
+
+#: templates/courses.html:17
+msgid "время (который час, в котором часу, сколько времени что-то занимает);"
+msgstr ""
+
+#: templates/courses.html:18
+msgid "возраст;"
+msgstr ""
+
+#: templates/courses.html:19
+msgid "любимые и нелюбимые вещи, еда и дела;"
+msgstr ""
+
+#: templates/courses.html:20
+msgid "что мы должны, можем и хотим делать?"
+msgstr ""
+
+#: templates/courses.html:21
+msgid "деньги (сколько стоит, почему так дорого и нельзя ли подешевле?);"
+msgstr ""
+
+#: templates/courses.html:22
+msgid "самочувствие (здоров, красив, умен, счастлив, но пока без работы);"
+msgstr ""
+
+#: templates/courses.html:23
+msgid "как добраться до нужной локации и не заблудиться?"
+msgstr ""
+
+#: templates/courses.html:24
+msgid "что вчера было?"
+msgstr ""
+
+#: templates/courses.html:25
+msgid "части тела, и что с ними делать."
+msgstr ""
+
+#: templates/courses.html:32
+msgid "Полистать"
+msgstr ""
+
+#: templates/courses.html:42
+msgid "Курс Бет"
+msgstr ""
+
+#: templates/courses.html:44
+msgid "Темы для изучения в рамках онлайн курса \"иврит среднего уровня\":"
+msgstr ""
+
+#: templates/courses.html:46
+msgid ""
+"знакомство (самопрезентация, рассказ о своем хобби, навыки задавать "
+"вопросы собеседнику);"
+msgstr ""
+
+#: templates/courses.html:47
+msgid ""
+"общение в магазине и на рынке в Израиле (продовольственные и "
+"непродовольственные товары);"
+msgstr ""
+
+#: templates/courses.html:48
+msgid "в кафе, в ресторане (общение с официантом, разговоры о любимых блюдах);"
+msgstr ""
+
+#: templates/courses.html:49
+msgid ""
+"как рассказать о своем опыте работы на иврите (изучение лексики, "
+"касающейся именно вашей отрасли);"
+msgstr ""
+
+#: templates/courses.html:50
+msgid "как арендовать машину (+ лексика, касающаяся заправки и страхования);"
+msgstr ""
+
+#: templates/courses.html:51
+msgid "поиск работы в сети онлайн и в компаниях по трудоустройству на иврите;"
+msgstr ""
+
+#: templates/courses.html:52
+msgid "общение в социальных сетях на иврите;"
+msgstr ""
+
+#: templates/courses.html:53
+msgid "на приеме у врача (базовая лексика касающаяся тела и возможных болезней);"
+msgstr ""
+
+#: templates/courses.html:54
+msgid ""
+"в городском транспорте в Израиле (расписание движения, покупка билетов и "
+"т.п.);"
+msgstr ""
+
+#: templates/courses.html:55
+msgid "общение в офисе (базовая лексика в сфере делового общения на иврите);"
+msgstr ""
+
+#: templates/courses.html:56
+msgid "автобиография на иврите;"
+msgstr ""
+
+#: templates/courses.html:57
+msgid ""
+"планы на будущее (отработка навыков использования будущего времени в "
+"иврите)."
+msgstr ""
+
+#: templates/courses.html:67
+msgid ""
+"При работе с преподавателем, вы сможете редактировать программу каждого "
+"курса: \n"
+"            при желании - сделать акцент на том, что нужно именно вам, и "
+"выбросить то, что вам не интересно."
+msgstr ""
+
+#: templates/courses.html:69
+msgid ""
+"Теперь вы можете: побольше узнать о преподавателе, или прямо написать и "
+"договориться о пробном занятии"
+msgstr ""
+
+#: templates/courses.html:72
+msgid "О преподавателе"
+msgstr ""
+
+#: templates/courses.html:73
+msgid "Связаться"
+msgstr ""
+
+#: templates/grade.html:5
+msgid "Количество баллов за тест: "
+msgstr ""
+
+#: templates/grade.html:15
+msgid "Еще тесты!"
+msgstr ""
+
+#: templates/grade.html:16
+msgid "План курса"
+msgstr ""
+
+#: templates/grade.html:17
+msgid "Хочу урок!"
+msgstr ""
+
+#: templates/index.html:5 templates/tests_general.html:4
+msgid "Экспресс-тесты на знание иврита"
+msgstr ""
+
+#: templates/index.html:6
+msgid "Этот минималистичный сайт пригодится вам, если вы:"
+msgstr ""
+
+#: templates/index.html:8
+msgid "Хотите протестировать свой уровень иврита"
+msgstr ""
+
+#: templates/index.html:9
+msgid "Ищете видео-, аудио- и текстовые материалы для изучения иврита"
+msgstr ""
+
+#: templates/index.html:10
+msgid "Готовитесь к сдаче экзамена на уровни Алеф или Бет"
+msgstr ""
+
+#: templates/index.html:11
+msgid "Ищете преподавателя, который помог бы вам в развитии разговорных навыков"
+msgstr ""
+
+#: templates/index.html:13
+msgid ""
+"Прежде всего, вы можете пройти тест и примерно определить свой уровень "
+"иврита.\n"
+"            Возможно, вам вовсе не нужно начинать с нуля.<br>\n"
+"            Затем ознакомьтесь с детально проработанной программой "
+"каждого курса.<br>\n"
+"            При работе с преподавателем, вы сможете настроить ее так, "
+"чтобы она \n"
+"            максимально соответствовала вашим потребностям.<br>\n"
+"            И, наконец, чтобы протестировать свои навыки восприятия на "
+"слух, \n"
+"            вы можете посмотреть наши забавные обучающие видео про "
+"животных.<br>\n"
+"            Хорошего вам настроения!"
+msgstr ""
+
+#: templates/index.html:23
+msgid "Пройти тест"
+msgstr ""
+
+#: templates/index.html:24
+msgid "Выбрать курс"
+msgstr ""
+
+#: templates/index.html:25
+msgid "Узнать преподавателя"
+msgstr ""
+
+#: templates/professor.html:7
+msgid "Сергей Гурбич"
+msgstr ""
+
+#: templates/professor.html:8
+msgid ""
+"Гебраист, переводчик, литературовед<br>\n"
+"                PhD в области израильской литературы<br>\n"
+"                Стаж преподавания: с 2001 года"
+msgstr ""
+
+#: templates/professor.html:18
+msgid "Возможности сотрудничества"
+msgstr ""
+
+#: templates/professor.html:19
+msgid "Для организаций:"
+msgstr ""
+
+#: templates/professor.html:21
+msgid "координация учебного процесса на академическом уровне;"
+msgstr ""
+
+#: templates/professor.html:22
+msgid "составление учебных программ по предметам в сфере иудаики;"
+msgstr ""
+
+#: templates/professor.html:23
+msgid "составление тестов по ивриту и организация тестирования студентов;"
+msgstr ""
+
+#: templates/professor.html:24
+msgid ""
+"создание и поддержка программного обеспечения для увеличения "
+"эффективности учебного процесса \n"
+"                и привлечения студентов."
+msgstr ""
+
+#: templates/professor.html:28
+msgid "Для частных лиц:"
+msgstr ""
+
+#: templates/professor.html:30
+msgid "подготовка к сдаче израильских тестов Алеф, Бет и Гимель;"
+msgstr ""
+
+#: templates/professor.html:31
+msgid "развитие разговорных навыков в разных областях современного иврита;"
+msgstr ""
+
+#: templates/professor.html:32
+msgid ""
+"расширение словарного запаса в рамках медицинской, юридической и "
+"технической тематики;"
+msgstr ""
+
+#: templates/professor.html:33
+msgid "обучение студентов с нуля до свободного владения языком."
+msgstr ""
+
+#: templates/professor.html:40
+msgid "Учебный процесс"
+msgstr ""
+
+#: templates/professor.html:41
+msgid ""
+"Хотя каждый курс имеет отработанную годами структуру, \n"
+"            материалы для обучения подбираются каждый раз индивидуально \n"
+"            в соответствии с интересами каждого студента. \n"
+"            Подумайте, что вас интересует: чтение текстов или просмотр "
+"видео? \n"
+"            А если видео, то фильмы или анимация? \n"
+"            Может, ваша цель – ведение блога или участие в игровых "
+"форумах? \n"
+"            Видео-конференции или общение с партнером вживую?\n"
+"            Для каждой из этих опций у меня есть огромный набор "
+"материалов разной тематики \n"
+"            – мода, спорт, технологии, даже общение с дикими животными. \n"
+"            Например, вот видео об американских белках на легком иврите,"
+" \n"
+"            сделанное специально для одного из моих курсов."
+msgstr ""
+
+#: templates/professor.html:58
+msgid "Преимущества"
+msgstr ""
+
+#: templates/professor.html:60
+msgid ""
+"Вы можете оплачивать стоимость занятия после его окончания – то есть, "
+"когда вы уже уверены в качестве услуг."
+msgstr ""
+
+#: templates/professor.html:61
+msgid ""
+"Если у вас нет опыта обучения онлайн – я помогу обустроить процесс "
+"максимально комфортно для вас."
+msgstr ""
+
+#: templates/professor.html:62
+msgid ""
+"Я развиваю прежде всего навыки общения, потому что понимаю, что ваша "
+"задача – не выучить весь язык, а использовать его для достижения своих "
+"целей."
+msgstr ""
+
+#: templates/professor.html:63
+msgid ""
+"У меня есть опыт подготовки студентов к сдаче израильских экзаменов на "
+"уровни Алеф и Бет - результат достигается гораздо быстрее, чем в "
+"израильском ульпане."
+msgstr ""
+
+#: templates/professor.html:64
+msgid ""
+"Я знаю, что некоторым студентам удобнее учить язык через грамматику, а "
+"других, наоборот, грамматика только пугает. В нашем с вами общении я буду"
+" использовать тот подход, который вам удобнее."
+msgstr ""
+
+#: templates/professor.html:65
+msgid ""
+"Возможен гибкий график занятий, то есть вы можете учить язык даже когда "
+"вы путешествуете!"
+msgstr ""
+
+#: templates/professor.html:72
+msgid "Опыт работы"
+msgstr ""
+
+#: templates/professor.html:74
+msgid "2020— наст. вр"
+msgstr ""
+
+#: templates/professor.html:75
+msgid "Исследователь в Университете Иллинойса в Урбана-Шампейн"
+msgstr ""
+
+#: templates/professor.html:78
+msgid ""
+"Преподаватель иврита и израильской литературы в Национальном Университете"
+" \"Киево-Могилянская Академия\""
+msgstr ""
+
+#: templates/professor.html:81
+msgid ""
+"Преподаватель иврита и израильской литературы в Международном Соломоновом"
+" Университете, Киев"
+msgstr ""
+
+#: templates/professor.html:84
+msgid ""
+"Переводчик с английского и иврита с опытом работы с литературными, "
+"публицистическими и научными текстами."
+msgstr ""
+
+#: templates/professor.html:87
+msgid ""
+"Преподаватель иврита и переводчик на курсах при Посольстве Израиля в "
+"Киеве, Украина"
+msgstr ""
+
+#: templates/professor.html:90
+msgid "Образование"
+msgstr ""
+
+#: templates/professor.html:92
+msgid "октябрь 2017 - июнь 2021"
+msgstr ""
+
+#: templates/professor.html:93
+msgid "Докторантура, департамент Иудаики, университет Хайдельберга, Германия"
+msgstr ""
+
+#: templates/professor.html:95
+msgid "март 2016 - август 2017"
+msgstr ""
+
+#: templates/professor.html:96
+msgid "Магистратура, департамент Иудаики, университет Хайдельберга, Германия"
+msgstr ""
+
+#: templates/professor.html:98
+msgid "август 2015 - февраль 2017"
+msgstr ""
+
+#: templates/professor.html:99
+msgid ""
+"Годичная образовательная программа по иудаике в институте Пайдейя, "
+"Стокгольм"
+msgstr ""
+
+#: templates/professor.html:101
+msgid "Сентябрь 1997 - май 2001"
+msgstr ""
+
+#: templates/professor.html:102
+msgid "Педагогический колледж, специализация \"Иудаика\", Киев, Украина"
+msgstr ""
+
+#: templates/professor.html:106
+msgid "Связаться со мной"
+msgstr ""
+
+#: templates/tests_general.html:5
+msgid "Тесты в рамках курса на уровень алеф:"
+msgstr ""
+
+#: templates/tests_general.html:44
+msgid "Тесты в рамках курса на уровень бет:"
+msgstr ""
+
+#: templates/textbook.html:38
+msgid "Примеры страниц учебника"
+msgstr ""
+
+#: templates/video.html:6
+msgid "Видео на легком иврите с субтитрами"
+msgstr ""
+
+#: templates/video.html:9
+msgid "Черный медведь aka барибал"
+msgstr ""
+
+#: templates/video.html:14
+msgid "Белка и кот"
+msgstr ""
+
+#: templates/video.html:19
+msgid "Американский лось"
+msgstr ""
+
+#: templates/video.html:24
+msgid "Сурок"
+msgstr ""
+
+#: templates/video.html:29
+msgid "Золотистый суслик"
+msgstr ""
+
+#: templates/video.html:34
+msgid "Спасение опоссума"
+msgstr ""
+
+#: templates/video.html:39
+msgid "Слонята"
+msgstr ""
+
+#: templates/video.html:44
+msgid "Воспитание бельчат"
+msgstr ""
+
+#: templates/videotest_quest.html:7
+msgid "Видеофрагмент для теста "
+msgstr ""
+
+#: templates/videotest_quest.html:8
+msgid "Вы можете просмотреть это видео повторно в ходе ответов на вопросы."
+msgstr ""
+

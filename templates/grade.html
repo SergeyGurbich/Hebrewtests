@@ -2,7 +2,7 @@
 {% block content %}
     
     <div class='article-main'>
-        <h1>Количество баллов за тест: {{points}} из 10</h1>
+        <h1>{{ _('Количество баллов за тест: ') ~points }} </h1>
         <h4>{{txt_mist}}</h4>
 
         {% for ele in mist1 %}
@@ -12,9 +12,9 @@
         <p align="center">{{txt}}</p>
 
         <div class="cont-video">
-            <a class='one' href="/tests_general">Еще тесты!</a>
-            <a class='one' href="/courses">План курса</a>
-            <a class='one' href="/about">Хочу урок!</a>
+            <a class='one' href="/tests_general">{{ _('Еще тесты!') }}</a>
+            <a class='one' href="/courses">{{ _('План курса') }}</a>
+            <a class='one' href="/about">{{ _('Хочу урок!') }}</a>
         </div>
 
     </div>

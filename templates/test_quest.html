@@ -2,12 +2,12 @@
 {% block content %}
     
     <div class='article-main'>
-        <h1>Вопрос #{{i}}</h1>
+        <h1>{{ _('Вопрос ') ~i}}</h1>
         <div class="rtl">
         <form action="/tests/{{id}}/{{i}}" method="POST">
             <p>{{ quest }}</p>
             <p>{{ form.quest }}</p>
-            <input type="submit">
+            <input type="submit" value="Ok">
         </form>
         </div>
     </div>

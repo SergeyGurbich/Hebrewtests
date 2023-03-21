@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Hebrew tests</title>
+	<title>Тесты и уроки иврита</title>
 
 	<!-- Шрифты с Google Fonts -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -11,6 +11,7 @@
 
 	<!-- Стили сайта -->
 	<link rel="stylesheet" type= "text/css" href = "{{ url_for('static',filename='styles/styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 </head>
 <body>
@@ -18,15 +19,28 @@
 	<nav class="navbar">
 
         <ul class="navbar-menu">
-            <li><a href="/">Главная</a></li>
-            <li><a href="/tests_general">Тесты</a></li>
-            <li><a href="/courses">Курсы</a></li>
-            <li><a href="/video">Видео</a></li>
-            <li><a href="/about">Обо мне</a></li>
-            <li><a href="mailto: serge.gurbich@gmail.com">Контакт</a></li>
+            <li><a href="/">{{ _('Главная') }}</a></li>
+            <li><a href="/tests_general">{{ _('Тесты') }}</a></li>
+            <li><a href="/courses">{{ _('Курсы') }}</a></li>
+            <li><a href="/video">{{ _('Видео') }}</a></li>
+            <li><a href="/about">{{ _('Обо мне') }}</a></li>
+            <li><a href="mailto: serge.gurbich@gmail.com">{{ _('Контакт') }}</a></li>
         </ul>
- 
     </nav>
+
+    <div class = "lang-menu">
+        <!-- Экспериментальная форма -->
+        <form id="lang-form" method="POST" action="{{ url_for('set_locale') }}">
+            <select name="lang" onchange="document.getElementById('lang-form').submit();">
+                {% for lang in AVAILABLE_LANGUAGES  %}
+                    <option value="{{ lang }}" {% if lang == CURRENT_LANGUAGE %}selected{% endif %}>
+                        {{ lang }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+        <!---->
+    </div>
 
     <div class='article-main'>
         
@@ -37,7 +51,7 @@
 
     <div class='footer'>
         <div class="footer-text">
-            <h6>Контент, оформление и всё такое: Sergii Gurbych</h6>
+            <h6>{{ _('Контент, оформление и всё такое: Sergii Gurbych') }}</h6>
         </div>
     </div>
 

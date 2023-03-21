@@ -1,16 +1,40 @@
-'''Код для сайта с ивритскими тестами'''
+'''Код для сайта с ивритскими тестами
+В этой версии добавляется поддержка нескольких языков через flask-babel'''
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from forms import testform
+from flask_babel import Babel, _
+from config import Config
 
 
 app = Flask(__name__)
+'''
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    #return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+'''
+
+def get_locale():
+    # Если юзер выбрал язык из меню, он сохранился через ф-цию set_local in session['language']
+    try:
+        language = session['language']
+    except KeyError:
+        language = None
+    if language is not None:
+        return language
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+babel = Babel(app)
+babel.init_app(app, locale_selector=get_locale)
+
 app.config["SECRET_KEY"] = "green"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Hebrewtests.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+app.config['LANGUAGES'] = ['uk', 'ru'] # Эта конфигурация прописана в файле config, класс Config
+#app.config['LANGUAGES'] = {'ee':'Estonian', 'uk':'Ukrainian', 'ru':'Russian'}
+app.config['BABEL_DEFAULT_LOCALE'] = ['ru']
 
 grade=[]
 mist=[]
@@ -22,8 +46,11 @@ with app.app_context():
     class Tests(db.Model):
         id = db.Column(db.Integer, primary_key = True) 
         title = db.Column(db.String(100), index = True, unique = False) 
+        title_uk = db.Column(db.String(100), index = True, unique = False)
         mes_before = db.Column(db.String(400), index = True, unique = False) 
+        mes_before_uk = db.Column(db.String(400), index = True, unique = False)
         mes_after = db.Column(db.String(400), index = True, unique = False) 
+        mes_after_uk = db.Column(db.String(400), index = True, unique = False) 
         level = db.Column(db.Integer, index = True, unique = False) 
         questions = db.relationship('Questions', backref='test', lazy='dynamic')
 
@@ -37,6 +64,7 @@ with app.app_context():
         correct = db.Column(db.String(100), index = True, unique = False)
         test_id = db.Column(db.Integer, db.ForeignKey('tests.id'))
         topic = db.Column(db.String(100), index = True, unique = False)
+        topic_uk = db.Column(db.String(100), index = True, unique = False)
 
         def __repr__(self):
             return '<{}>'.format(self.question)
@@ -44,8 +72,11 @@ with app.app_context():
     class Audiotests(db.Model):
         id = db.Column(db.Integer, primary_key = True) 
         title = db.Column(db.String(100), index = True, unique = False) 
-        mes_before = db.Column(db.String(400), index = True, unique = False) 
-        mes_after = db.Column(db.String(400), index = True, unique = False) 
+        title_uk = db.Column(db.String(100), index = True, unique = False)
+        mes_before = db.Column(db.String(400), index = True, unique = False)
+        mes_before_uk = db.Column(db.String(400), index = True, unique = False)  
+        mes_after = db.Column(db.String(400), index = True, unique = False)
+        mes_after_uk = db.Column(db.String(400), index = True, unique = False) 
         link=db.Column(db.String(100), index = True, unique = False)
         level = db.Column(db.Integer, index = True, unique = False) 
         questions = db.relationship('AudioQuestions', backref='test', lazy='dynamic')
@@ -66,9 +97,12 @@ with app.app_context():
 
     class Videotests(db.Model):
         id = db.Column(db.Integer, primary_key = True) 
-        title = db.Column(db.String(100), index = True, unique = False) 
-        mes_before = db.Column(db.String(400), index = True, unique = False) 
-        mes_after = db.Column(db.String(400), index = True, unique = False) 
+        title = db.Column(db.String(100), index = True, unique = False)
+        title_uk = db.Column(db.String(100), index = True, unique = False) 
+        mes_before = db.Column(db.String(400), index = True, unique = False)
+        mes_before_uk = db.Column(db.String(400), index = True, unique = False) 
+        mes_after = db.Column(db.String(400), index = True, unique = False)
+        mes_after_uk = db.Column(db.String(400), index = True, unique = False) 
         link=db.Column(db.String(100), index = True, unique = False)
         level = db.Column(db.Integer, index = True, unique = False) 
         questions = db.relationship('VideoQuestions', backref='test', lazy='dynamic')
@@ -88,6 +122,17 @@ with app.app_context():
             return '<{}>'.format(self.question)
 
     db.create_all()
+
+@app.context_processor # Создает словарь как глобальную переменную, доступную в шаблонах
+def inject_conf_var():
+    return dict(AVAILABLE_LANGUAGES=app.config['LANGUAGES'], CURRENT_LANGUAGE=session.get('language', request.accept_languages.best_match(app.config['LANGUAGES'])))
+
+@app.route('/set_locale', methods=['POST'])
+def set_locale():
+    lang = request.form['lang']
+    session['language'] = lang 	
+    return redirect(request.referrer or url_for('index'))
+
 
 @app.route('/')
 def index():
@@ -114,7 +159,8 @@ def tests_gen():
     tests=Tests.query.order_by(Tests.id)
     audiotests=Audiotests.query.order_by(Audiotests.id)
     videotests=Videotests.query.order_by(Videotests.id)
-    return render_template('tests_general.html', rows = tests, rows_audio=audiotests, rows_video=videotests)
+    lang=get_locale()
+    return render_template('tests_general.html', rows = tests, rows_audio=audiotests, rows_video=videotests, lang=lang)
 
 @app.route('/tests/<quiz_num>')
 def start_quiz(quiz_num):
@@ -124,6 +170,7 @@ def start_quiz(quiz_num):
 def tests(quiz_num, question_number):
     
     questions = Tests.query.get(quiz_num).questions.all()
+    #raw = Tests.query.get(quiz_num)
     radioform = testform()
     if request.method == "GET":
 
@@ -136,14 +183,17 @@ def tests(quiz_num, question_number):
                                id=quiz_num, form=radioform, i=question_number)
     
     if request.method == "POST":
-        
+        lang = get_locale() 
         correct = questions[question_number-1].correct
         answer = radioform.quest.data
         if answer == correct:
             grade.append(question_number) 
         else:
-            mist.append(questions[question_number-1].topic)
-        
+            if lang =='uk':
+                mist.append(questions[question_number-1].topic_uk)
+            else:
+                mist.append(questions[question_number-1].topic)
+
         if question_number < 10:
             return redirect(url_for('tests', quiz_num = quiz_num, question_number = question_number+1))
         else: 
@@ -152,11 +202,17 @@ def tests(quiz_num, question_number):
             grade.clear()
             grade1.clear()
             if points == 10:
-                txt=Tests.query.get(quiz_num).mes_after
+                if lang =='uk':
+                    txt=Tests.query.get(quiz_num).mes_after_uk
+                else:
+                    txt=Tests.query.get(quiz_num).mes_after
                 txt1=''
             else:
-                txt=Tests.query.get(quiz_num).mes_before
-                txt1='Возможно, вам стоит повторить следующие темы:'
+                if lang =='uk':
+                    txt=Tests.query.get(quiz_num).mes_before_uk
+                else:
+                    txt=Tests.query.get(quiz_num).mes_before
+                txt1=_('Возможно, вам стоит повторить следующие темы:')
     
             a=[ele for ele in mist]
             mist.clear()
@@ -186,7 +242,7 @@ def audiotests(quiz_num, question_number):
                                id=quiz_num, form=radioform, i=question_number, audio_url=audio_url)
 
     if request.method == "POST":
-        
+        lang = get_locale() 
         correct = questions[question_number-1].correct
         answer = radioform.quest.data
         if answer == correct:
@@ -196,17 +252,23 @@ def audiotests(quiz_num, question_number):
         
         if question_number < 10:
             return redirect(url_for('audiotests', quiz_num = quiz_num, question_number = question_number+1))
-        else: 
+        else:
             grade1 = set(grade) # избежать повторного прохождения вопроса, вернувшись назад
             points = len(grade1)
             grade.clear()
             grade1.clear()
             if points == 10:
-                txt=Audiotests.query.get(quiz_num).mes_after
+                if lang =='uk':
+                    txt=Audiotests.query.get(quiz_num).mes_after_uk
+                else:
+                    txt=Audiotests.query.get(quiz_num).mes_after
                 txt1=''
             else:
-                txt=Audiotests.query.get(quiz_num).mes_before
-                txt1='Ошибки были допущены при ответе на следующие вопросы:'
+                if lang =='uk':
+                    txt=Audiotests.query.get(quiz_num).mes_before_uk
+                else:
+                    txt=Audiotests.query.get(quiz_num).mes_before
+                txt1=_('Ошибки были допущены при ответе на следующие вопросы:')
     
             a=[ele for ele in mist]
             mist.clear()
@@ -235,7 +297,7 @@ def videotests(quiz_num, question_number):
                                id=quiz_num, form=radioform, i=question_number, video_url=video_url)
 
     if request.method == "POST":
-        
+        lang = get_locale() 
         correct = questions[question_number-1].correct
         answer = radioform.quest.data
         if answer == correct:
@@ -245,17 +307,23 @@ def videotests(quiz_num, question_number):
         
         if question_number < 10:
             return redirect(url_for('videotests', quiz_num = quiz_num, question_number = question_number+1))
-        else: 
+        else:
             grade1 = set(grade) # избежать повторного прохождения вопроса, вернувшись назад
             points = len(grade1)
             grade.clear()
             grade1.clear()
             if points == 10:
-                txt=Videotests.query.get(quiz_num).mes_after
+                if lang =='uk':
+                    txt=Videotests.query.get(quiz_num).mes_after_uk
+                else:
+                    txt=Videotests.query.get(quiz_num).mes_after
                 txt1=''
             else:
-                txt=Videotests.query.get(quiz_num).mes_before
-                txt1='Ошибки были допущены при ответе на следующие вопросы:'
+                if lang =='uk':
+                    txt=Videotests.query.get(quiz_num).mes_before_uk
+                else:
+                    txt=Videotests.query.get(quiz_num).mes_before
+                txt1=_('Ошибки были допущены при ответе на следующие вопросы:')
     
             a=[ele for ele in mist]
             mist.clear()
@@ -263,4 +331,4 @@ def videotests(quiz_num, question_number):
             return render_template('grade.html', points = points, mist1=a, txt=txt, txt_mist=txt1)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
