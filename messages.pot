@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-20 19:26-0500\n"
+"POT-Creation-Date: 2023-03-24 16:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: flask_app.py:215
+#: flask_app.py:221
 msgid "Возможно, вам стоит повторить следующие темы:"
 msgstr ""
 
-#: flask_app.py:271 flask_app.py:326
+#: flask_app.py:277 flask_app.py:332
 msgid "Ошибки были допущены при ответе на следующие вопросы:"
+msgstr ""
+
+#: templates/api-info.html:7 templates/api.html:7
+msgid ""
+"Проект Hebrew открыт к сотрудничеству с разработчиками приложений, "
+"которым могут потребоваться вопросы квизов для разных уровней иврита."
+msgstr ""
+
+#: templates/api-info.html:10 templates/api.html:10 templates/api_info.html:10
+msgid ""
+"В настоящее время доступ по API к базе данных вопросов является "
+"бесплатным и не требует регистрации. Если вы сообщите мне о том, что "
+"используете данный доступ, я буду информировать вас обо всех изменениях и"
+" обновлениях."
+msgstr ""
+
+#: templates/api-info.html:13 templates/api.html:13 templates/api_info.html:13
+msgid ""
+"В качестве параметра запроса нужно указывать только уровень языка, для "
+"которого требуется вопрос квиза. В ответ на каждый запрос выдается один "
+"случайно выбранный вопрос с вариантами ответов и правильным вариантом. "
+msgstr ""
+
+#: templates/api-info.html:15 templates/api.html:15 templates/api_info.html:15
+msgid "Пример запроса: "
+msgstr ""
+
+#: templates/api_info.html:7
+msgid ""
+"Проект Hebrew открыт к сотрудничеству с разработчиками приложений, "
+"которым могут потребоваться вопросы для квизов разных уровней иврита."
+msgstr ""
+
+#: templates/api_info.html:19
+msgid "Пример ответа на запрос:"
+msgstr ""
+
+#: templates/api_info.html:34
+msgid ""
+"База данных постоянно пополняется. На данный момент доступны вопросы для "
+"уровней языка А1 (израильский алеф) и А2 (бет)."
 msgstr ""
 
 #: templates/audiotest_quest.html:7
@@ -62,7 +103,7 @@ msgstr ""
 msgid "Контакт"
 msgstr ""
 
-#: templates/base.html:54
+#: templates/base.html:55
 msgid "Контент, оформление и всё такое: Sergii Gurbych"
 msgstr ""
 

@@ -1,11 +1,12 @@
 '''Код для сайта с ивритскими тестами
 В этой версии добавляется поддержка нескольких языков через flask-babel'''
 
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
 from forms import testform
 from flask_babel import Babel, _
 from config import Config
+import random
 
 
 app = Flask(__name__)
@@ -34,7 +35,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Hebrewtests.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['LANGUAGES'] = ['uk', 'ru'] # Эта конфигурация прописана в файле config, класс Config
 #app.config['LANGUAGES'] = {'ee':'Estonian', 'uk':'Ukrainian', 'ru':'Russian'}
-app.config['BABEL_DEFAULT_LOCALE'] = ['ru']
+#app.config['BABEL_DEFAULT_LOCALE'] = ['ru']
+app.config['JSON_AS_ASCII'] = False
 
 grade=[]
 mist=[]
@@ -130,7 +132,7 @@ def inject_conf_var():
 @app.route('/set_locale', methods=['POST'])
 def set_locale():
     lang = request.form['lang']
-    session['language'] = lang 	
+    session['language'] = lang 
     return redirect(request.referrer or url_for('index'))
 
 
@@ -153,6 +155,10 @@ def textbook():
 @app.route('/video')
 def video():
     return render_template('video.html')
+
+@app.route('/api_info')
+def api_info():
+    return render_template('api_info.html')
 
 @app.route('/tests_general')
 def tests_gen():
@@ -329,6 +335,23 @@ def videotests(quiz_num, question_number):
             mist.clear()
 
             return render_template('grade.html', points = points, mist1=a, txt=txt, txt_mist=txt1)
+
+@app.route('/api')
+def api():
+    level = request.args.get('level')
+    if level == 'A1':
+        num = random.randint(1, 30)
+    elif level == 'A2':
+        num = random.randint(31, 60)
+    else:
+        num = random.randint(1, 60)
+    RandQuest = Questions.query.get(num)
+    quest = RandQuest.question
+    choices = RandQuest.answers.split('|')
+    correct = RandQuest.correct
+
+    dct = {'question':quest, 'choices':choices, 'correct_answer': correct}
+    return jsonify(dct) 
 
 if __name__ == '__main__':
     app.run(debug=True)
